@@ -1,9 +1,8 @@
 // Initialisation on global variables
 var canvas = document.querySelector('canvas')
 var ctx = canvas.getContext('2d')
-var width = canvas.width
-var height = canvas.height
 var game
+
 
 // Go to main page
 // goToPage('home')
@@ -17,6 +16,9 @@ $('a').click(function(event){
 })
 
 $('#play').click(function(){
+  if (game) {
+    game.stop()
+  }
   game = new Game(ctx, levels[0].grid)
   game.start()
 })
@@ -24,7 +26,7 @@ $('#play').click(function(){
 
 
 $(document).keydown(function(event){
-  // console.log("keydown",event.keyCode)
+  console.log("keydown",event.keyCode)
   switch(event.keyCode) {
     case 37:
       game.paddle.movement = "left"
@@ -48,11 +50,3 @@ $(document).keyup(function(event){
       break
   }
 })
-
-
-
-
-
-
-
-

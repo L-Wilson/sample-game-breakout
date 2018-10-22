@@ -6,8 +6,6 @@ class Ball {
     this.radius = radius
     this.speed = 0
     this.angle = -Math.PI/2
-    // this.vx = 0
-    // this.vy = 0
   }
   vx() {
     return this.speed*Math.cos(this.angle)

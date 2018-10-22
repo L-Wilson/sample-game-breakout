@@ -15,6 +15,3 @@ function goToPage(link) {
       $(this).removeClass('active')
   })
 }
-
-
-// function render

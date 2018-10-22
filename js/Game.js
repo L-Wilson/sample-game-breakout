@@ -41,6 +41,9 @@ class Game{
     //   that.start()
     // })
   }
+  stop(){
+    clearInterval(this.intervalId)
+  }
   launchBalls(){
     for (var i = 0; i < this.balls.length; i++) {
       this.balls[i].launch()
@@ -71,13 +74,11 @@ class Game{
         if (this.checkBallBrickCollisionAndUpdate(this.balls[iBall], this.bricks[iBrick])) {
           console.log("DELETE", iBrick)
           this.bricks.splice(iBrick, 1)
-
         }
       } 
     }
     this.removeUselessBalls()
     if (this.balls.length === 0) {
-      console.log('GAME OVER')
       this.balls.push(new Ball(this.ctx, this.paddle.center().x, this.paddle.y-this.BALL_RADIUS, this.BALL_RADIUS))
       this.lives--
     }
